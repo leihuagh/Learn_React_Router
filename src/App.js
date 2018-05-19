@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Home</h1>
-      </div>
+      <BrowserRouter>
+        <Fragment>
+          <h1>Home</h1>
+        </Fragment>
+      </BrowserRouter>
     )
   }
 }
