@@ -58,11 +58,7 @@ class App extends Component {
             exact
             strict
             render={({ match }) =>
-              loggedIn ? (
-                <User username={match.params.username} />
-              ) : (
-                <Redirect to="/" />
-              )
+              loggedIn ? <User params={match.params} /> : <Redirect to="/" />
             }
           />
         </Fragment>
