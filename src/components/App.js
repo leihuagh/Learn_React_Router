@@ -1,5 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route, NavLink, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Route,
+  NavLink,
+  Redirect,
+  Prompt
+} from 'react-router-dom'
 
 import Home from './routes/Home'
 import About from './routes/About'
@@ -36,16 +42,24 @@ class App extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/user/Lei" activeStyle={{ color: 'green' }}>
-                User Lei
+              <NavLink to="/user/Mary" activeStyle={{ color: 'green' }}>
+                User Mary
               </NavLink>
             </li>
             <li>
-              <NavLink to="/user/Kim" activeStyle={{ color: 'green' }}>
-                User Kim
+              <NavLink to="/user/Ben" activeStyle={{ color: 'green' }}>
+                User Ben
               </NavLink>
             </li>
           </ul>
+          <Prompt
+            when={!this.state.loggedIn}
+            message={location => {
+              return location.pathname.startsWith('/user')
+                ? 'Are you sure?'
+                : true
+            }}
+          />
           <input
             type="button"
             value={loggedIn ? 'log out' : 'log in'}
