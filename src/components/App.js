@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom'
 
 import Home from './routes/Home'
 import About from './routes/About'
@@ -12,16 +12,24 @@ class App extends Component {
         <Fragment>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" activeStyle={{ color: 'green' }}>
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about" activeStyle={{ color: 'green' }}>
+                About
+              </NavLink>
             </li>
             <li>
-              <Link to="/user/Lei">User Lei</Link>
+              <NavLink to="/user/Lei" activeStyle={{ color: 'green' }}>
+                User Lei
+              </NavLink>
             </li>
             <li>
-              <Link to="/user/Kim">User Kim</Link>
+              <NavLink to="/user/Kim" activeStyle={{ color: 'green' }}>
+                User Kim
+              </NavLink>
             </li>
           </ul>
           <Route path="/" exact component={Home} />
